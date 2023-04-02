@@ -100,7 +100,7 @@
             <tr>
               <th>材料</th>
               <th>重量（斤）</th>
-			  <th>重来（克）</th>
+			  <th>重量（克）</th>
             </tr>
           </thead>
           <tbody id="resultBody">
@@ -141,6 +141,51 @@
 		<label></label>
       </form>
     </div>
+	
+	<script>
+		// 读取本地存储中的配料百分比设置
+		const gingerRatio = parseFloat(localStorage.getItem('gingerRatio')) || 20;
+		const waterRatio = parseFloat(localStorage.getItem('waterRatio')) || 77;
+		const saltRatio = parseFloat(localStorage.getItem('saltRatio')) || 0.5;
+		const xanthanGumRatio = parseFloat(localStorage.getItem('xanthanGumRatio')) || 0.2;
+		const cmcRatio = parseFloat(localStorage.getItem('cmcRatio')) || 0.2;
+		const lemonYellowRatio = parseFloat(localStorage.getItem('lemonYellowRatio')) || 0.01;
+		const potassiumSorbateRatio = parseFloat(localStorage.getItem('potassiumSorbateRatio')) || 0.1;
+
+		// 在页面加载时将默认值填充到输入框中
+		document.querySelector('#gingerRatio').value = gingerRatio;
+		document.querySelector('#waterRatio').value = waterRatio;
+		document.querySelector('#saltRatio').value = saltRatio;
+		document.querySelector('#xanthanGumRatio').value = xanthanGumRatio;
+		document.querySelector('#cmcRatio').value = cmcRatio;
+		document.querySelector('#lemonYellowRatio').value = lemonYellowRatio;
+		document.querySelector('#potassiumSorbateRatio').value = potassiumSorbateRatio;
+
+		// 在表单提交时将用户设置保存到本地存储中
+		form.addEventListener('submit', function(e) {
+		  e.preventDefault();
+
+		const gingerRatio = parseFloat(document.querySelector('#gingerRatio').value);
+		const waterRatio = parseFloat(document.querySelector('#waterRatio').value);
+		const saltRatio = parseFloat(document.querySelector('#saltRatio').value);
+		const xanthanGumRatio = parseFloat(document.querySelector('#xanthanGumRatio').value);
+		const cmcRatio = parseFloat(document.querySelector('#cmcRatio').value);
+		const lemonYellowRatio = parseFloat(document.querySelector('#lemonYellowRatio').value);
+		const potassiumSorbateRatio = parseFloat(document.querySelector('#potassiumSorbateRatio').value);
+
+		// 将用户设置保存到本地存储中
+		localStorage.setItem('gingerRatio', gingerRatio);
+		localStorage.setItem('waterRatio', waterRatio);
+		localStorage.setItem('saltRatio', saltRatio);
+		localStorage.setItem('xanthanGumRatio', xanthanGumRatio);
+		localStorage.setItem('cmcRatio', cmcRatio);
+		localStorage.setItem('lemonYellowRatio', lemonYellowRatio);
+		localStorage.setItem('potassiumSorbateRatio', potassiumSorbateRatio);
+
+		// 计算配料重量并更新页面
+		// ...
+		});
+	</script>
 	
     <script>
       const form = document.querySelector('form');
